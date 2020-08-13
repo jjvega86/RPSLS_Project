@@ -22,7 +22,8 @@ namespace RPSLS
 
         public override string ChangeName()
         {
-            string newName = nameChoices[random.Next(nameChoices.Count + 1)];
+            string newName = ""; 
+            newName = nameChoices[random.Next(nameChoices.Count + 1)];
             return newName;
         }
 

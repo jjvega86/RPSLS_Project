@@ -50,5 +50,7 @@ namespace RPSLS
             gestureChoice = Console.ReadLine();
             return gestureChoice;
         }
+
+        
     }
 }

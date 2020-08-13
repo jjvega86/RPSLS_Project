@@ -82,8 +82,9 @@ namespace RPSLS
         {
             string winner = player1.name;
             Console.WriteLine($"It's {player1.name} vs. {player2b.name}. Let's go!");
-            player1.AssignGesture();
-            player2b.AssignGesture();
+            CompareGestures(player1.AssignGesture(), player2b.AssignGesture());
+
+         
 
             //Method call to compare gestures and determine what wins
             //Update the score of winning player
@@ -101,8 +102,8 @@ namespace RPSLS
         {
             string winner = player1.name;
             Console.WriteLine($"It's {player1.name} vs. {player2a.name}. Let's go!");
-            player1.AssignGesture(); 
-            player2a.AssignGesture();
+            CompareGestures(player1.AssignGesture(), player2a.AssignGesture());
+
 
             //Method call to compare gestures and determine what wins
             //Update the score of winning player
@@ -114,6 +115,15 @@ namespace RPSLS
             //repeat until winner
             //Human vs. AI
             return winner;
+        }
+
+        public void CompareGestures(string gesture1, string gesture2)
+        {
+            if(gesture1 == "Rock" && gesture2 == "Scissors")
+            {
+                player1.score++;
+            }
+
         }
 
         public void DeclareWinner(string winner)
