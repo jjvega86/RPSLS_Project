@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace RPSLS
 {
-    class AI : Player
+    class Computer : Player
     {
         List<string> nameChoices;
         Random random;
 
 
-        public AI()
+        public Computer()
            
         {
             nameChoices = new List<string>() {"Bob", "Rob", "Cobb", "Cindy", "Carol", "Tommy"};

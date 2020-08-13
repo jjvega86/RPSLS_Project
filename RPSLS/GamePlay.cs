@@ -10,10 +10,12 @@ namespace RPSLS
     {
         Player player1;
         Player player2;
+        int maxScore;
 
         public GamePlay()
         {
             player1 = new Human("Player 1");
+            maxScore = 3;
    
         }
 
@@ -22,27 +24,13 @@ namespace RPSLS
             //Contains all other GamePlay method, and is the only method that will run in Program.cs
             GameWelcome();
             GameRules();
+            ChooseRounds();
             DeterminePlayer2();
             PlayGame();
             DeclareWinner();
         }
 
-        public void DeterminePlayer2()
-        {
-            Console.WriteLine("Will you play alone, or with a friend?");
-            Console.WriteLine("Choose 1 for alone, or 2 to play with a friend!");
-            int userInput = Convert.ToInt32(Console.ReadLine());
        
-
-            if (userInput == 1)
-            {
-                player2 = new AI();
-            }
-            else
-            {
-                player2 = new Human("Player 2");
-            }
-        }
 
         public void GameWelcome()
         {
@@ -53,12 +41,34 @@ namespace RPSLS
         public void GameRules()
         {
             //Greets player, explains rules
-            //Choose number of rounds?
-            //best of 3
+            //best of 3 minimum ACCORDING TO USER STORY
 
         }
 
-    
+        public void ChooseRounds()
+        {
+            Console.WriteLine("How many rounds would you like to play?");
+            int userInput = Convert.ToInt32(Console.ReadLine());
+            maxScore = userInput;
+        }
+        public void DeterminePlayer2()
+        {
+            Console.WriteLine("Will you play alone, or with a friend?");
+            Console.WriteLine("Choose 1 for alone, or 2 to play with a friend!");
+            int userInput = Convert.ToInt32(Console.ReadLine());
+
+
+            if (userInput == 1)
+            {
+                player2 = new Computer();
+            }
+            else
+            {
+                player2 = new Human("Player 2");
+            }
+        }
+
+
 
         public void PlayGame()
         {
@@ -66,7 +76,7 @@ namespace RPSLS
             player2.name = player2.ChangeName();
             Console.WriteLine($"It's {player1.name} vs. {player2.name}. Let's go!");
 
-            while (player1.score < 3 && player2.score < 3)
+            while (player1.score < maxScore && player2.score < maxScore)
             {
                 CompareGestures(player1.AssignGesture(), player2.AssignGesture());
 

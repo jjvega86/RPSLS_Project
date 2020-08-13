@@ -45,6 +45,7 @@ namespace RPSLS
 
         public virtual string AssignGesture()
         {
+            //validation: if gestureChoice doesn't equal the gesture option exactly, reprompt for input
             DisplayGestureOptions();
             Console.WriteLine("Please choose your gesture!");
             gestureChoice = Console.ReadLine();
