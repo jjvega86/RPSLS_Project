@@ -10,12 +10,12 @@ namespace RPSLS
     {
         Player player1;
         Player player2;
-        int maxScore;
+        int maxRounds;
 
         public GamePlay()
         {
             player1 = new Human("Player 1");
-            maxScore = 3;
+            maxRounds = 3;
    
         }
 
@@ -34,14 +34,20 @@ namespace RPSLS
 
         public void GameWelcome()
         {
+            Console.WriteLine("Welcome to Rock, Paper, Scissors, Lizard, Spock!");
+            Console.WriteLine("It's a game based on statistical anecdotal evidence.");
+            Console.ReadLine();
             
 
         }
 
         public void GameRules()
         {
-            //Greets player, explains rules
-            //best of 3 minimum ACCORDING TO USER STORY
+            Console.WriteLine("You will take turns with another player. Each round, you and the other player will pick a gesture.");
+            player1.DisplayGestureOptions();
+            Console.WriteLine("");
+            Console.WriteLine("One gesture always beats another. Whoever gets the most points wins!");
+            Console.ReadLine();
 
         }
 
@@ -49,7 +55,7 @@ namespace RPSLS
         {
             Console.WriteLine("How many rounds would you like to play?");
             int userInput = Convert.ToInt32(Console.ReadLine());
-            maxScore = userInput;
+            maxRounds = userInput;
         }
         public void DeterminePlayer2()
         {
@@ -68,15 +74,13 @@ namespace RPSLS
             }
         }
 
-
-
         public void PlayGame()
         {
             player1.name = player1.ChangeName();
             player2.name = player2.ChangeName();
             Console.WriteLine($"It's {player1.name} vs. {player2.name}. Let's go!");
 
-            while (player1.score < maxScore && player2.score < maxScore)
+            while (player1.score < maxRounds && player2.score < maxRounds)
             {
                 CompareGestures(player1.AssignGesture(), player2.AssignGesture());
 
@@ -88,9 +92,112 @@ namespace RPSLS
         {
             if(gesture1 == "Rock" && gesture2 == "Scissors")
             {
+                Console.WriteLine("Rock crushes Scissors!");
                 player1.score++;
             }
-            //Player 1 gets a point, Player 2 gets a point, Draw
+            else if (gesture1 == "Scissors" && gesture2 == "Paper")
+            {
+                Console.WriteLine("Scissors crushes Scissors!");
+                player1.score++;
+            }
+            else if(gesture1 == "Paper" && gesture2 == "Rock")
+            {
+                Console.WriteLine("Paper covers Rock!");
+                player1.score++;
+            }
+            else if(gesture1 == "Rock" && gesture2 == "Lizard")
+            {
+                Console.WriteLine("Rock crushes Lizard!");
+                player1.score++;
+            }
+            else if(gesture1 == "Lizard" && gesture2 == "Spock")
+            {
+                Console.WriteLine("Lizard poisons Spock!");
+                player1.score++;
+            }
+            else if(gesture1 == "Spock" && gesture2 == "Sicssors")
+            {
+                Console.WriteLine("Spock smashes Scissors!");
+                player1.score++;
+            }
+            else if(gesture1 == "Scissors" && gesture2 == "Lizard")
+            {
+                Console.WriteLine("Scissors decapitates Lizard!");
+                player1.score++;
+            }
+            else if(gesture1 == "Lizard" && gesture2 == "Paper")
+            {
+                Console.WriteLine("Lizard eats Paper!");
+                player1.score++;
+            }
+            else if(gesture1 == "Paper" && gesture2 == "Spock")
+            {
+                Console.WriteLine("Paper disapproves Spock!");
+                player1.score++;
+            }
+            else if(gesture1 == "Spock" && gesture2 == "Rock")
+            {
+                Console.WriteLine("Spock vaporizes Rock!");
+                player1.score++;
+            }
+            else if(gesture2 == "Rock" && gesture1 == "Scissors")
+            {
+                Console.WriteLine("Rock crushes Scissors!");
+                player2.score++;
+            }
+            else if(gesture2 == "Scissors" && gesture1 == "Paper")
+            {
+                Console.WriteLine("Scissors crushes Scissors!");
+                player2.score++;
+            }
+            else if(gesture2 == "Paper" && gesture1 == "Rock")
+            {
+                Console.WriteLine("Paper covers Rock!");
+                player2.score++;
+            }
+            else if(gesture2 == "Rock" && gesture1 == "Lizard")
+            {
+                Console.WriteLine("Rock crushes Lizard!");
+                player2.score++;
+            }
+            else if(gesture2 == "Lizard" && gesture1 == "Spock")
+            {
+                Console.WriteLine("Lizard poisons Spock!");
+                player2.score++;
+            }
+            else if(gesture2 == "Spock" && gesture1 == "Sicssors")
+            {
+                Console.WriteLine("Spock smashes Scissors!");
+                player2.score++;
+            }
+            else if(gesture2 == "Scissors" && gesture1 == "Lizard")
+            {
+                Console.WriteLine("Scissors decapitates Lizard!");
+                player2.score++;
+            }
+            else if(gesture2 == "Lizard" && gesture1 == "Paper")
+            {
+                Console.WriteLine("Lizard eats Paper!");
+                player2.score++;
+            }
+            else if(gesture2 == "Paper" && gesture1 == "Spock")
+            {
+                Console.WriteLine("Paper disapproves Spock!");
+                player2.score++;
+            }
+            else if(gesture2 == "Spock" && gesture1 == "Rock")
+            {
+                Console.WriteLine("Spock vaporizes Rock!");
+                player2.score++;
+            }
+
+
+            else
+            {
+                Console.WriteLine("Draw!");
+                //MaxRound-- to decrement the game total? This would make a better "2 out of 3" scenario.
+                //get it working first
+            }
 
         }
 
@@ -107,6 +214,7 @@ namespace RPSLS
             else
             {
                 winner = player2.name;
+                
             }
 
 

@@ -43,15 +43,10 @@ namespace RPSLS
             }
         }
 
-        public virtual string AssignGesture()
-        {
-            //validation: if gestureChoice doesn't equal the gesture option exactly, reprompt for input
-            DisplayGestureOptions();
-            Console.WriteLine("Please choose your gesture!");
-            gestureChoice = Console.ReadLine();
-            return gestureChoice;
-        }
-
+        public abstract string AssignGesture(); 
+        //this forces child classes to declare their version of this method with unique logic
         
+
+
     }
 }
