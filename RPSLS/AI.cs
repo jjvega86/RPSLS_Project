@@ -8,20 +8,28 @@ namespace RPSLS
 {
     class AI : Player
     {
-        List<string> namechoices;
+        List<string> nameChoices;
+        Random random;
+
 
         public AI()
            
         {
-            namechoices = new List<string>() {"Bob", "Rob", "Cobb", "Cindy", "Carol", "Tommy"};
+            nameChoices = new List<string>() {"Bob", "Rob", "Cobb", "Cindy", "Carol", "Tommy"};
             name = "WALL-E";
+            random = new Random();
         }
 
         public override string ChangeName()
         {
-            Random random = new Random();
-            string newname = namechoices[random.Next(namechoices.Count + 1)];
-            return newname;
+            string newName = nameChoices[random.Next(nameChoices.Count + 1)];
+            return newName;
+        }
+
+        public override string AssignGesture()
+        {
+            gestureChoice = gestures[random.Next(gestures.Count + 1)].name;
+            return gestureChoice;
         }
     }
 }
