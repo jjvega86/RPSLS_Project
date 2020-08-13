@@ -15,7 +15,7 @@ namespace RPSLS
         public GamePlay()
         {
             player1 = new Human("Player 1");
-            maxRounds = 3;
+            maxRounds = 3; // must be MINIMUM of three
    
         }
 
@@ -53,9 +53,20 @@ namespace RPSLS
 
         public void ChooseRounds()
         {
-            Console.WriteLine("How many rounds would you like to play?");
+            Console.WriteLine("How many rounds would you like to play (Minimum of 3)?");
             int userInput = Convert.ToInt32(Console.ReadLine());
-            maxRounds = userInput;
+
+            if (userInput >= 3)
+            {
+                maxRounds = userInput;
+
+            }
+            else
+            {
+                maxRounds = 3;
+
+            }
+            
         }
         public void DeterminePlayer2()
         {
