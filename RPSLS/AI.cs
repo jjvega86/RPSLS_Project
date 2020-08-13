@@ -19,9 +19,8 @@ namespace RPSLS
 
         public override string ChangeName()
         {
-            string newname;
-            //determines based on random selection from a 
-            //List
+            Random random = new Random();
+            string newname = namechoices[random.Next(namechoices.Count - 1)];
             return newname;
         }
     }

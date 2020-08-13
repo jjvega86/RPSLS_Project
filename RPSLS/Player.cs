@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RPSLS
 {
-    public abstract class Player
+    public class Player
     {
         //should contain a list of possible gestures
         //could contain a variable for current score
@@ -25,8 +25,10 @@ namespace RPSLS
 
         public virtual string ChangeName()
         {
-            string newname;
             //take in user input to assign a string to the "name" variable
+
+            Console.WriteLine("Please enter your name!");
+            string newname = Console.ReadLine();
             return newname;
         }
     }

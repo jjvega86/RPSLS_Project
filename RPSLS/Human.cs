@@ -15,14 +15,6 @@ namespace RPSLS
 
         }
 
-        public override string ChangeName()
-        {
-            string newname;
-            //accepts user input - this will be the same
-            //as parent class
-
-            return newname;
-
-        }
+       
     }
 }
