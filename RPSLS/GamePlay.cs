@@ -57,6 +57,7 @@ namespace RPSLS
             {
                 //solo game w/ AI player
                 player1.name = player1.ChangeName();
+                player2b.name = player2b.ChangeName();
                 SoloGame();
 
             }

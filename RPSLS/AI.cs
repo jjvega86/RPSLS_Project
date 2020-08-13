@@ -13,14 +13,14 @@ namespace RPSLS
         public AI()
            
         {
-            namechoices = new List<string>() {"Bob", "Rob", "Cobb"};
-            name = ChangeName();
+            namechoices = new List<string>() {"Bob", "Rob", "Cobb", "Cindy", "Carol", "Tommy"};
+            name = "WALL-E";
         }
 
         public override string ChangeName()
         {
             Random random = new Random();
-            string newname = namechoices[random.Next(namechoices.Count - 1)];
+            string newname = namechoices[random.Next(namechoices.Count + 1)];
             return newname;
         }
     }

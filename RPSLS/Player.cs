@@ -36,9 +36,11 @@ namespace RPSLS
 
         public void DisplayGestureOptions()
         {
-            
+            for (int i = 0; i < gestures.Count; i++)
+            {
+                Console.WriteLine(gestures[i].name);
 
-
+            }
         }
 
         public void AssignGesture()
