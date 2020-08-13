@@ -6,11 +6,7 @@ using System.Threading.Tasks;
 
 namespace RPSLS
 {
-    class Program
+    class GamePlay
     {
-        static void Main(string[] args)
-        {
-
-        }
     }
 }

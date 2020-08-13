@@ -6,11 +6,7 @@ using System.Threading.Tasks;
 
 namespace RPSLS
 {
-    class Program
+    public abstract class Gesture
     {
-        static void Main(string[] args)
-        {
-
-        }
     }
 }
