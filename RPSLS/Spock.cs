@@ -8,5 +8,9 @@ namespace RPSLS
 {
     class Spock : Gesture
     {
+        public Spock()
+        {
+
+        }
     }
 }

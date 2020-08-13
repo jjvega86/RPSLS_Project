@@ -8,5 +8,17 @@ namespace RPSLS
 {
     public abstract class Player
     {
+        //should contain a list of possible gestures
+        //could contain a variable for current score
+
+        public string name;
+        public int score;
+        public List<Gesture> gestures;
+
+        public Player(string name)
+        {
+            this.name = name;
+            
+        }
     }
 }

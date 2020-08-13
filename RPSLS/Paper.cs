@@ -8,5 +8,9 @@ namespace RPSLS
 {
     class Paper : Gesture
     {
+        public Paper()
+        {
+
+        }
     }
 }

@@ -8,5 +8,9 @@ namespace RPSLS
 {
     class Scissor : Gesture
     {
+        public Scissor()
+        {
+
+        }
     }
 }
