@@ -9,10 +9,10 @@ namespace RPSLS
     class Human : Player
     {
         
-        public Human()
+        public Human(string name)
             
         {
-
+            this.name = name;
         }
 
        

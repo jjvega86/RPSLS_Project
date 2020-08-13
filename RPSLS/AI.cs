@@ -11,10 +11,10 @@ namespace RPSLS
         List<string> namechoices;
 
         public AI()
-            
+           
         {
             namechoices = new List<string>() {"Bob", "Rob", "Cobb"};
-            name = "Robot";
+            name = ChangeName();
         }
 
         public override string ChangeName()

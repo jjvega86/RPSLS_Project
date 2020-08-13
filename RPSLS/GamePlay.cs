@@ -8,13 +8,15 @@ namespace RPSLS
 {
     class GamePlay
     {
-        Player player1;
-        Player player2;
+        Human player1;
+        Human player2a;
+        AI player2b;
 
         public GamePlay()
         {
-            player1 = new Player();
-            player2 = new Player();
+            player1 = new Human("Player 1");
+            player2a = new Human("Player 2");
+            player2b = new AI();
 
         }
 
@@ -22,7 +24,8 @@ namespace RPSLS
         {
             //Contains all other GamePlay method, and is the only method that will run in Program.cs
             GameIntroduction();
-            GameRound(ChooseGameMode());
+            Game(ChooseGameMode());
+            DeclareWinner();
 
 
         }
@@ -47,18 +50,21 @@ namespace RPSLS
 
         }
 
-        public void GameRound(int gametype)
+        public void Game(int gametype)
         {
             if (gametype == 1)
             {
                 //solo game w/ AI player
-                SoloGameRound();
+                player1.name = player1.ChangeName();
+                SoloGame();
 
             }
             else if (gametype == 2)
             {
                 //multiplayer game w/ two humans
-                MultiplayerGameRound();
+                player1.name = player1.ChangeName();
+                player2a.name = player2a.ChangeName();
+                MultiplayerGame();
             }
             else
             {
@@ -71,16 +77,25 @@ namespace RPSLS
 
         }
 
-        public void SoloGameRound()
+        public void SoloGame()
         {
+            Console.WriteLine($"It's {player1.name} vs. {player2b.name}. Let's go!");
             //player 1 chooses gesture
-            //player 2 chooses gesture
+            //player 2 AI gesture chosen at random
+            //repeat until winner
             //Human vs. AI
+            
         }
 
-        public void MultiplayerGameRound()
+        public void MultiplayerGame()
         {
+            Console.WriteLine($"It's {player1.name} vs. {player2a.name}. Let's go!");
+
             //Human vs. Human
+            //player 1 chooses gesture
+            //player 2 chooses gesture
+            //repeat until winner
+            //Human vs. AI
         }
 
         public void DeclareWinner()

@@ -17,7 +17,7 @@ namespace RPSLS
 
         public Player()
         {
-            name = "Player X";
+            name = "Default";
             score = 0;
             gestures = new List<Gesture>() { new Rock(), new Paper(), new Scissors(), new Lizard(), new Spock() };
             
@@ -27,7 +27,7 @@ namespace RPSLS
         {
             //take in user input to assign a string to the "name" variable
 
-            Console.WriteLine("Please enter your name!");
+            Console.WriteLine($"Please enter your name, {name}!");
             string newname = Console.ReadLine();
             return newname;
         }
