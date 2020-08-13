@@ -8,11 +8,21 @@ namespace RPSLS
 {
     class AI : Player
     {
+        List<string> namechoices;
 
-        public AI(string name)
-            :base(name)
+        public AI()
+            
         {
-            this.name = name;
+            namechoices = new List<string>() {"Bob", "Rob", "Cobb"};
+            name = "Robot";
+        }
+
+        public override string ChangeName()
+        {
+            string newname;
+            //determines based on random selection from a 
+            //List
+            return newname;
         }
     }
 }

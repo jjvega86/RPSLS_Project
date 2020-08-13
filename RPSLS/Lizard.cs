@@ -10,7 +10,7 @@ namespace RPSLS
     {
         public Lizard()
         {
-
+            name = "Lizard";
         }
     }
 }

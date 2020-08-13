@@ -15,10 +15,19 @@ namespace RPSLS
         public int score;
         public List<Gesture> gestures;
 
-        public Player(string name)
+        public Player()
         {
-            this.name = name;
+            name = "Player X";
+            score = 0;
+            gestures = new List<Gesture>() { new Rock(), new Paper(), new Scissors(), new Lizard(), new Spock() };
             
+        }
+
+        public virtual string ChangeName()
+        {
+            string newname;
+            //take in user input to assign a string to the "name" variable
+            return newname;
         }
     }
 }

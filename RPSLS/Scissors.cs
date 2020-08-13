@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace RPSLS
 {
-    class Scissor : Gesture
+    class Scissors : Gesture
     {
-        public Scissor()
+        public Scissors()
         {
-
+            name = "Scissors";
         }
     }
 }

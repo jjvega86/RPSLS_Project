@@ -10,7 +10,7 @@ namespace RPSLS
     {
         public Paper()
         {
-
+            name = "Paper";
         }
     }
 }

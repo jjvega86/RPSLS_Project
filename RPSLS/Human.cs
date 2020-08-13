@@ -9,10 +9,19 @@ namespace RPSLS
     class Human : Player
     {
         
-        public Human(string name)
-            :base(name)
+        public Human()
+            
         {
-            this.name = name;
+
+        }
+
+        public override string ChangeName()
+        {
+            string newname;
+            //accepts user input - this will be the same
+            //as parent class
+
+            return newname;
 
         }
     }
