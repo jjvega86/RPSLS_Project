@@ -51,14 +51,14 @@ namespace RPSLS
 
         public string Game(int gametype)
         {
-            string gamewinner = "Default";
+            string gameWinner = "Default";
 
             if (gametype == 1)
             {
                 //solo game w/ AI player
                 player1.name = player1.ChangeName();
                 player2b.name = player2b.ChangeName();
-                SoloGame();
+                gameWinner = SoloGame();
 
             }
             else if (gametype == 2)
@@ -66,7 +66,7 @@ namespace RPSLS
                 //multiplayer game w/ two humans
                 player1.name = player1.ChangeName();
                 player2a.name = player2a.ChangeName();
-                MultiplayerGame();
+                gameWinner = MultiplayerGame();
             }
             else
             {
@@ -75,14 +75,12 @@ namespace RPSLS
                 //how to get it to restart the whole method after they choose their game mode again?***
             }
 
-            return gamewinner;
-
-            
-
+            return gameWinner;
         }
 
-        public void SoloGame()//return string winner
+        public string SoloGame()//return string winner
         {
+            string winner = player1.name;
             Console.WriteLine($"It's {player1.name} vs. {player2b.name}. Let's go!");
             player1.AssignGesture();
             player2b.AssignGesture();
@@ -95,11 +93,13 @@ namespace RPSLS
             //player 2 AI gesture chosen at random
             //repeat until winner
             //Human vs. AI
+            return winner;
 
         }
 
-        public void MultiplayerGame() //return string winner
+        public string MultiplayerGame() //return string winner
         {
+            string winner = player1.name;
             Console.WriteLine($"It's {player1.name} vs. {player2a.name}. Let's go!");
             player1.AssignGesture(); 
             player2a.AssignGesture();
@@ -113,6 +113,7 @@ namespace RPSLS
             //player 2 chooses gesture
             //repeat until winner
             //Human vs. AI
+            return winner;
         }
 
         public void DeclareWinner(string winner)
