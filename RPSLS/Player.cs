@@ -14,13 +14,15 @@ namespace RPSLS
         public string name;
         public int score;
         public List<Gesture> gestures;
+        public string gesturechoice;
 
         public Player()
         {
             name = "Default";
             score = 0;
             gestures = new List<Gesture>() { new Rock(), new Paper(), new Scissors(), new Lizard(), new Spock() };
-            
+            gesturechoice = "Default";
+           
         }
 
         public virtual string ChangeName()
@@ -30,6 +32,21 @@ namespace RPSLS
             Console.WriteLine($"Please enter your name, {name}!");
             string newname = Console.ReadLine();
             return newname;
+        }
+
+        public void DisplayGestureOptions()
+        {
+            
+
+
+        }
+
+        public void AssignGesture()
+        {
+            DisplayGestureOptions();
+            Console.WriteLine("Please choose your gesture!");
+            gesturechoice = Console.ReadLine();
+
         }
     }
 }

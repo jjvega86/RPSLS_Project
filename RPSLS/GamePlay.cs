@@ -24,8 +24,7 @@ namespace RPSLS
         {
             //Contains all other GamePlay method, and is the only method that will run in Program.cs
             GameIntroduction();
-            Game(ChooseGameMode());
-            DeclareWinner();
+            DeclareWinner(Game(ChooseGameMode()));
 
 
         }
@@ -50,8 +49,10 @@ namespace RPSLS
 
         }
 
-        public void Game(int gametype)
+        public string Game(int gametype)
         {
+            string gamewinner = "Default";
+
             if (gametype == 1)
             {
                 //solo game w/ AI player
@@ -70,26 +71,41 @@ namespace RPSLS
             {
                 Console.WriteLine("Hmmmm, you must have chosen the wrong option. Please try again!");
                 //gametype = ChooseGameMode();
-                //how to get it to restart the whole method after they choose their game mode again?
+                //how to get it to restart the whole method after they choose their game mode again?***
             }
+
+            return gamewinner;
 
             
 
         }
 
-        public void SoloGame()
+        public void SoloGame()//return string winner
         {
             Console.WriteLine($"It's {player1.name} vs. {player2b.name}. Let's go!");
+            player1.AssignGesture();
+            player2b.AssignGesture();
+
+            //Method call to compare gestures and determine what wins
+            //Update the score of winning player
+            //logic to determine who wins based on each player's score
+
             //player 1 chooses gesture
             //player 2 AI gesture chosen at random
             //repeat until winner
             //Human vs. AI
-            
+
         }
 
-        public void MultiplayerGame()
+        public void MultiplayerGame() //return string winner
         {
             Console.WriteLine($"It's {player1.name} vs. {player2a.name}. Let's go!");
+            player1.AssignGesture(); 
+            player2a.AssignGesture();
+
+            //Method call to compare gestures and determine what wins
+            //Update the score of winning player
+            //logic to determine who wins based on each player's score
 
             //Human vs. Human
             //player 1 chooses gesture
@@ -98,10 +114,13 @@ namespace RPSLS
             //Human vs. AI
         }
 
-        public void DeclareWinner()
+        public void DeclareWinner(string winner)
         {
             //takes the return of GameRound for the game winner, outputs a winning message
             //asks if you would like to play again, restarts the whole thing if yes
+            Console.WriteLine($"The game winner is {winner}!");
+            Console.ReadLine();
+
         }
     }
 }
