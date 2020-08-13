@@ -23,13 +23,13 @@ namespace RPSLS
         public override string ChangeName()
         {
             string newName = ""; 
-            newName = nameChoices[random.Next(nameChoices.Count + 1)];
+            newName = nameChoices[random.Next(nameChoices.Count)];
             return newName;
         }
 
         public override string AssignGesture()
         {
-            gestureChoice = gestures[random.Next(gestures.Count + 1)].name;
+            gestureChoice = gestures[random.Next(gestures.Count)].name;
             return gestureChoice;
         }
     }

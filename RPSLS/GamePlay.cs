@@ -83,6 +83,7 @@ namespace RPSLS
             while (player1.score < maxRounds && player2.score < maxRounds)
             {
                 CompareGestures(player1.AssignGesture(), player2.AssignGesture());
+                Console.WriteLine("");
 
             }
 
@@ -97,7 +98,7 @@ namespace RPSLS
             }
             else if (gesture1 == "Scissors" && gesture2 == "Paper")
             {
-                Console.WriteLine("Scissors crushes Scissors!");
+                Console.WriteLine("Scissors cuts Paper!");
                 player1.score++;
             }
             else if(gesture1 == "Paper" && gesture2 == "Rock")
@@ -147,7 +148,7 @@ namespace RPSLS
             }
             else if(gesture2 == "Scissors" && gesture1 == "Paper")
             {
-                Console.WriteLine("Scissors crushes Scissors!");
+                Console.WriteLine("Scissors cuts Paper!");
                 player2.score++;
             }
             else if(gesture2 == "Paper" && gesture1 == "Rock")
@@ -190,8 +191,6 @@ namespace RPSLS
                 Console.WriteLine("Spock vaporizes Rock!");
                 player2.score++;
             }
-
-
             else
             {
                 Console.WriteLine("Draw!");
