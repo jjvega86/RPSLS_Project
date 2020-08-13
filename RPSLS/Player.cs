@@ -43,12 +43,12 @@ namespace RPSLS
             }
         }
 
-        public void AssignGesture()
+        public string AssignGesture()
         {
             DisplayGestureOptions();
             Console.WriteLine("Please choose your gesture!");
             gesturechoice = Console.ReadLine();
-
+            return gesturechoice;
         }
     }
 }
