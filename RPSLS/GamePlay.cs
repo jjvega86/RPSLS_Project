@@ -16,7 +16,7 @@ namespace RPSLS
 
         public GamePlay()
         {
-            InitializeValues();
+            InitializeValues(); //calling a method to initialize values in constructor for replay purposes
    
         }
 
@@ -27,7 +27,7 @@ namespace RPSLS
             userInput = 0;
         }
 
-        public void RunGame()
+        public void RunGame() //"master" method that orchestrates all the other methods
         {
             InitializeValues();
             GameWelcome();
@@ -43,7 +43,7 @@ namespace RPSLS
 
         public void GameWelcome()
         {
-            Console.WriteLine("Welcome to Rock, Paper, Scissors, Lizard, Spock!");
+            Console.WriteLine("\nWelcome to Rock, Paper, Scissors, Lizard, Spock!");
             Console.WriteLine("It's a game based on statistical anecdotal evidence.");
             Console.ReadLine();
 
@@ -57,7 +57,7 @@ namespace RPSLS
 
         }
 
-        public void ChooseRounds()
+        public void ChooseRounds() //calls a validation method to make sure only correct integers are passed
         {
            
 
@@ -80,7 +80,7 @@ namespace RPSLS
             }
 
         }
-        public void DeterminePlayer2()
+        public void DeterminePlayer2() //Player player == new Human() or new Computer(); Can be either because inheritance
         {
             
             Console.WriteLine("Will you play alone, or with a friend?");
@@ -105,7 +105,7 @@ namespace RPSLS
             
         }
 
-        public void ValidatePlayerChoice()
+        public void ValidatePlayerChoice() //uses TryParse to return a bool for valid input. Repeats until user input is valid
         {
             bool inputSuccess = false;
             
@@ -123,11 +123,11 @@ namespace RPSLS
 
         public void PlayGame()
         {
-            player1.name = player1.ChangeName();
-            player2.name = player2.ChangeName();
+            player1.ChangeName();
+            player2.ChangeName();
             Console.WriteLine($"\nIt's {player1.name} vs. {player2.name}. Let's go!\n");
 
-            while (player1.score < maxRounds && player2.score < maxRounds)
+            while (player1.score < maxRounds && player2.score < maxRounds) 
             {
                 CompareGestures(player1.AssignGesture(), player2.AssignGesture());
                 PrintCurrentScore();
@@ -143,7 +143,7 @@ namespace RPSLS
             Console.ReadLine();
         }
 
-        public void CompareGestures(Gesture gesture1, Gesture gesture2)
+        public void CompareGestures(Gesture gesture1, Gesture gesture2) //uses LosesTo lists on all gesture classes for comparisons
         {
             if (gesture1.name == gesture2.name)
             {
@@ -188,7 +188,7 @@ namespace RPSLS
 
         }
 
-        public void PlayAgain()
+        public void PlayAgain() //InitializeValues methods resets constructor of GamePlay instance to defaults
         {
             Console.WriteLine("Would you like to play again?");
             Console.WriteLine("Press 1 for yes, 2 for no.\n");

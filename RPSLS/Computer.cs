@@ -20,11 +20,10 @@ namespace RPSLS
             random = new Random();
         }
 
-        public override string ChangeName()
+        public override void ChangeName()
         {
-            string newName = ""; 
-            newName = nameChoices[random.Next(nameChoices.Count)];
-            return newName;
+            name = nameChoices[random.Next(nameChoices.Count)];
+            
         }
 
         public override Gesture AssignGesture()

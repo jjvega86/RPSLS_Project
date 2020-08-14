@@ -6,17 +6,14 @@ using System.Threading.Tasks;
 
 namespace RPSLS
 {
-    public abstract class Player
+    public abstract class Player //abstract because Player object is never instantiated
     {
-        //should contain a list of possible gestures
-        //could contain a variable for current score
-
         public string name;
         public int score;
         public List<Gesture> gestures;
         public string gestureChoice;
 
-        public Player()
+        public Player() //every player has a gestures list, regardless of what KIND of player
         {
             name = "Default";
             score = 0;
@@ -25,13 +22,10 @@ namespace RPSLS
            
         }
 
-        public virtual string ChangeName()
+        public virtual void ChangeName() //used in all child classes
         {
-            //take in user input to assign a string to the "name" variable
-
             Console.WriteLine($"\nPlease enter your name, {name}!");
-            string newname = Console.ReadLine();
-            return newname;
+            name = Console.ReadLine();
         }
 
         public void DisplayGestureOptions()
@@ -46,6 +40,8 @@ namespace RPSLS
 
         public abstract Gesture AssignGesture(); 
         //this forces child classes to declare their version of this method with unique logic
+        //doesn't need code logic here because Player object is never instantiated
+        //and, each child will do it differently
         
 
 
