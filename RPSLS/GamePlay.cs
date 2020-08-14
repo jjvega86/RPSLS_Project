@@ -12,11 +12,13 @@ namespace RPSLS
         Player player1;
         Player player2;
         int maxRounds;
+        int userInput;
 
         public GamePlay()
         {
             player1 = new Human("Player 1");
-            maxRounds = 3; 
+            maxRounds = 3;
+            userInput = 0;
    
         }
 
@@ -53,19 +55,11 @@ namespace RPSLS
 
         public void ChooseRounds()
         {
-            int userInput;
-            bool inputSuccess;
+           
 
             Console.WriteLine("How many rounds would you like to play (Minimum of 3)?");
-            inputSuccess = int.TryParse(Console.ReadLine(), out userInput);
-            while (inputSuccess == false)
-            {
-                Console.WriteLine("I didn't recognize that input. Please try again!");
-                inputSuccess = int.TryParse(Console.ReadLine(), out userInput);
-
-            }
-            //int userInput = int.Parse((Console.ReadLine());
-            //Is there a parse check I could run in case the user doesn't enter an integer?
+            ValidatePlayerChoice();
+            
 
 
             if (userInput >= 3)
@@ -86,11 +80,12 @@ namespace RPSLS
         }
         public void DeterminePlayer2()
         {
+            
             Console.WriteLine("Will you play alone, or with a friend?");
             Console.WriteLine("Choose 1 to play with a friend, or 2 to play alone!");
-            int userInput = Convert.ToInt32(Console.ReadLine());
-            //check for successful parse, reprompt for input if user doesn't enter an INT
+            ValidatePlayerChoice();
 
+            
             if (userInput == 1)
             {
                 player2 = new Human("Player 2");
@@ -99,19 +94,26 @@ namespace RPSLS
             else if (userInput == 2)
             {
                 player2 = new Computer();
-
             }
             else
             {
-                ValidatePlayerChoice();
+                Console.WriteLine("That isn't one of the options. Please try again!");
+                DeterminePlayer2();
             }
+            
         }
 
         public void ValidatePlayerChoice()
         {
-            Console.WriteLine("I'm sorry, that choice isn't valid. Please try again!");
-            Console.WriteLine("");
-            DeterminePlayer2();
+            bool inputSuccess;
+            
+            inputSuccess = int.TryParse(Console.ReadLine(), out userInput);
+            while (inputSuccess == false)
+            {
+                Console.WriteLine("I didn't recognize that input. Please try again!");
+                inputSuccess = int.TryParse(Console.ReadLine(), out userInput);
+
+            }
 
         }
 
