@@ -16,25 +16,27 @@ namespace RPSLS
 
         public GamePlay()
         {
+            InitializeValues();
+   
+        }
+
+        public void InitializeValues()
+        {
             player1 = new Human("Player 1");
             maxRounds = 3;
             userInput = 0;
-   
         }
 
         public void RunGame()
         {
-            //string playAgain; //write an if statement that runs game again if user wants it to
-            //need to re-run RunGame and reset all the initial values
-            //method InitializeValues to set constructor 
-            //can call to set the values later on after game has run
-
+            InitializeValues();
             GameWelcome();
             GameRules();
             ChooseRounds();
             DeterminePlayer2();
             PlayGame();
             DeclareWinner();
+            PlayAgain();
         }
 
        
@@ -184,6 +186,27 @@ namespace RPSLS
 
             }
 
+        }
+
+        public void PlayAgain()
+        {
+            Console.WriteLine("Would you like to play again?");
+            Console.WriteLine("Press 1 for yes, 2 for no.\n");
+            ValidatePlayerChoice();
+            if (userInput == 1)
+            {
+                RunGame();
+            }
+            else if (userInput == 2)
+            {
+                Console.WriteLine("\nHave a great day!");
+            }
+            else
+            {
+                Console.WriteLine("\nThis isn't an option. Please try again!");
+                PlayAgain();
+            }
+            
         }
     }
 }
