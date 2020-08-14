@@ -53,8 +53,20 @@ namespace RPSLS
 
         public void ChooseRounds()
         {
+            int userInput;
+            bool inputSuccess;
+
             Console.WriteLine("How many rounds would you like to play (Minimum of 3)?");
-            int userInput = Convert.ToInt32(Console.ReadLine());
+            inputSuccess = int.TryParse(Console.ReadLine(), out userInput);
+            while (inputSuccess == false)
+            {
+                Console.WriteLine("I didn't recognize that input. Please try again!");
+                inputSuccess = int.TryParse(Console.ReadLine(), out userInput);
+
+            }
+            //int userInput = int.Parse((Console.ReadLine());
+            //Is there a parse check I could run in case the user doesn't enter an integer?
+
 
             if (userInput >= 3)
             {
@@ -69,7 +81,6 @@ namespace RPSLS
                 Console.WriteLine("Three rounds it is!");
                 Console.WriteLine("");
 
-
             }
 
         }
@@ -78,7 +89,7 @@ namespace RPSLS
             Console.WriteLine("Will you play alone, or with a friend?");
             Console.WriteLine("Choose 1 to play with a friend, or 2 to play alone!");
             int userInput = Convert.ToInt32(Console.ReadLine());
-
+            //check for successful parse, reprompt for input if user doesn't enter an INT
 
             if (userInput == 1)
             {
