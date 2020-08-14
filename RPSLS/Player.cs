@@ -44,7 +44,7 @@ namespace RPSLS
             Console.WriteLine("");
         }
 
-        public abstract string AssignGesture(); 
+        public abstract Gesture AssignGesture(); 
         //this forces child classes to declare their version of this method with unique logic
         
 

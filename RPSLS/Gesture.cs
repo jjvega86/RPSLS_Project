@@ -6,12 +6,14 @@ using System.Threading.Tasks;
 
 namespace RPSLS
 {
-    public class Gesture
+    public abstract class Gesture
     {
         public string name;
+        public List<string> LosesTo;
         public Gesture()
         {
             name = "Default";
+            LosesTo = new List<string>();
 
         }
     }

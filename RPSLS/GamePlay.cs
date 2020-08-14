@@ -25,6 +25,9 @@ namespace RPSLS
         public void RunGame()
         {
             //string playAgain; //write an if statement that runs game again if user wants it to
+            //need to re-run RunGame and reset all the initial values
+            //method InitializeValues to set constructor 
+            //can call to set the values later on after game has run
 
             GameWelcome();
             GameRules();
@@ -46,8 +49,7 @@ namespace RPSLS
 
         public void GameRules()
         {
-            Console.WriteLine("You will take turns with another player. Each round, you and the other player will pick a gesture.");
-            Console.WriteLine("");
+            Console.WriteLine("You will take turns with another player. Each round, you and the other player will pick a gesture.\n");
             Console.WriteLine("One gesture always beats another. Whoever gets the most points wins!");
             Console.ReadLine();
 
@@ -65,15 +67,13 @@ namespace RPSLS
             if (userInput >= 3)
             {
                 maxRounds = userInput;
-                Console.WriteLine($"Great! You're playing for best out of {maxRounds}!");
-                Console.WriteLine("");
+                Console.WriteLine($"Great! You're playing for best out of {maxRounds}!\n");
 
             }
             else
             {
                 maxRounds = 3;
-                Console.WriteLine("Three rounds it is!");
-                Console.WriteLine("");
+                Console.WriteLine("Three rounds it is!\n");
 
             }
 
@@ -105,14 +105,16 @@ namespace RPSLS
 
         public void ValidatePlayerChoice()
         {
-            bool inputSuccess;
+            bool inputSuccess = false;
             
-            inputSuccess = int.TryParse(Console.ReadLine(), out userInput);
             while (inputSuccess == false)
             {
-                Console.WriteLine("I didn't recognize that input. Please try again!");
                 inputSuccess = int.TryParse(Console.ReadLine(), out userInput);
+                if (inputSuccess == false)
+                {
+                    Console.WriteLine("I didn't recognize that input. Please try again!");
 
+                }
             }
 
         }
@@ -121,11 +123,10 @@ namespace RPSLS
         {
             player1.name = player1.ChangeName();
             player2.name = player2.ChangeName();
-            Console.WriteLine("");
-            Console.WriteLine($"It's {player1.name} vs. {player2.name}. Let's go!");
-            Console.WriteLine("");
+            Console.WriteLine($"\nIt's {player1.name} vs. {player2.name}. Let's go!\n");
 
-            while (player1.score + player2.score < maxRounds)
+            //MVP - player1.score <maxRounds && player2.score < MaxRounds
+            while (player1.score + player2.score < maxRounds)//does this work for every scenario?
             {
                 CompareGestures(player1.AssignGesture(), player2.AssignGesture());
                 Console.WriteLine("");
@@ -142,114 +143,26 @@ namespace RPSLS
             Console.ReadLine();
         }
 
-        public void CompareGestures(string gesture1, string gesture2)
+        public void CompareGestures(Gesture gesture1, Gesture gesture2)
         {
-            if(gesture1 == "Rock" && gesture2 == "Scissors")
+            if (gesture1.name == gesture2.name)
             {
-                Console.WriteLine($"Rock crushes Scissors! {player1.name} wins.");
-                player1.score++;
+                Console.WriteLine("Draw!\n");
+
             }
-            else if (gesture1 == "Scissors" && gesture2 == "Paper")
+            else if (gesture1.LosesTo.Contains(gesture2.name))
             {
-                Console.WriteLine($"Scissors cuts Paper! {player1.name} wins.");
-                player1.score++;
-            }
-            else if(gesture1 == "Paper" && gesture2 == "Rock")
-            {
-                Console.WriteLine($"Paper covers Rock! {player1.name} wins.");
-                player1.score++;
-            }
-            else if(gesture1 == "Rock" && gesture2 == "Lizard")
-            {
-                Console.WriteLine($"Rock crushes Lizard! {player1.name} wins.");
-                player1.score++;
-            }
-            else if(gesture1 == "Lizard" && gesture2 == "Spock")
-            {
-                Console.WriteLine($"Lizard poisons Spock! {player1.name} wins.");
-                player1.score++;
-            }
-            else if(gesture1 == "Spock" && gesture2 == "Sicssors")
-            {
-                Console.WriteLine($"Spock smashes Scissors! {player1.name} wins.");
-                player1.score++;
-            }
-            else if(gesture1 == "Scissors" && gesture2 == "Lizard")
-            {
-                Console.WriteLine($"Scissors decapitates Lizard! {player1.name} wins.");
-                player1.score++;
-            }
-            else if(gesture1 == "Lizard" && gesture2 == "Paper")
-            {
-                Console.WriteLine($"Lizard eats Paper! {player1.name} wins.");
-                player1.score++;
-            }
-            else if(gesture1 == "Paper" && gesture2 == "Spock")
-            {
-                Console.WriteLine($"Paper disapproves Spock! {player1.name} wins.");
-                player1.score++;
-            }
-            else if(gesture1 == "Spock" && gesture2 == "Rock")
-            {
-                Console.WriteLine($"Spock vaporizes Rock! {player1.name} wins.");
-                player1.score++;
-            }
-            else if(gesture2 == "Rock" && gesture1 == "Scissors")
-            {
-                Console.WriteLine($"Rock crushes Scissors! {player2.name} wins.");
                 player2.score++;
-            }
-            else if(gesture2 == "Scissors" && gesture1 == "Paper")
-            {
-                Console.WriteLine($"Scissors cuts Paper! {player2.name} wins.");
-                player2.score++;
-            }
-            else if(gesture2 == "Paper" && gesture1 == "Rock")
-            {
-                Console.WriteLine($"Paper covers Rock! {player2.name} wins.");
-                player2.score++;
-            }
-            else if(gesture2 == "Rock" && gesture1 == "Lizard")
-            {
-                Console.WriteLine($"Rock crushes Lizard! {player2.name} wins.");
-                player2.score++;
-            }
-            else if(gesture2 == "Lizard" && gesture1 == "Spock")
-            {
-                Console.WriteLine($"Lizard poisons Spock! {player2.name} wins.");
-                player2.score++;
-            }
-            else if(gesture2 == "Spock" && gesture1 == "Sicssors")
-            {
-                Console.WriteLine($"Spock smashes Scissors! {player2.name} wins.");
-                player2.score++;
-            }
-            else if(gesture2 == "Scissors" && gesture1 == "Lizard")
-            {
-                Console.WriteLine($"Scissors decapitates Lizard! {player2.name} wins.");
-                player2.score++;
-            }
-            else if(gesture2 == "Lizard" && gesture1 == "Paper")
-            {
-                Console.WriteLine($"Lizard eats Paper! {player2.name} wins.");
-                player2.score++;
-            }
-            else if(gesture2 == "Paper" && gesture1 == "Spock")
-            {
-                Console.WriteLine($"Paper disapproves Spock! {player2.name} wins.");
-                player2.score++;
-            }
-            else if(gesture2 == "Spock" && gesture1 == "Rock")
-            {
-                Console.WriteLine($"Spock vaporizes Rock! {player2.name} wins.");
-                player2.score++;
+                Console.WriteLine("Player 2 wins the round!\n");
             }
             else
             {
-                Console.WriteLine("Draw!");
-            }
+                player1.score++;
+                Console.WriteLine("Player 1 wins the round!\n");
 
+            }
         }
+
 
 
         public void DeclareWinner()

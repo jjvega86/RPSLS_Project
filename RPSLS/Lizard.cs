@@ -11,6 +11,8 @@ namespace RPSLS
         public Lizard()
         {
             name = "Lizard";
+            LosesTo.Add("Rock");
+            LosesTo.Add("Scissors");
         }
     }
 }

@@ -27,11 +27,10 @@ namespace RPSLS
             return newName;
         }
 
-        public override string AssignGesture()
+        public override Gesture AssignGesture()
         {
-            gestureChoice = gestures[random.Next(gestures.Count)].name;
-            Console.WriteLine("");
-            return gestureChoice;
+            return gestures[random.Next(gestures.Count)];
+                       
         }
     }
 }

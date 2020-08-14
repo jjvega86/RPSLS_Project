@@ -15,17 +15,30 @@ namespace RPSLS
             this.name = name;
         }
 
-        public override string AssignGesture()
+        public override Gesture AssignGesture()
         {
+
             DisplayGestureOptions();
             Console.WriteLine($"Please choose your gesture, {name}!");
             gestureChoice = Console.ReadLine();
-            Console.WriteLine("");
             ValidateGestureInput(gestureChoice);
-            return gestureChoice;
+
+            int gesturesIndex = 0;
+
+            for (int i = 0; i < gestures.Count; i++)
+            {
+                if (gestures[i].name == gestureChoice)
+                {
+                    gesturesIndex = i;
+                    
+                }
+            }
+
+            return gestures[gesturesIndex];
+
         }
 
-        public void ValidateGestureInput(string input)
+        public void ValidateGestureInput(string input) //REDO WITH NO DEPENDENCY IN ASSIGN METHOD
         {
             bool inputValid = false;
 
@@ -43,7 +56,7 @@ namespace RPSLS
                 Console.WriteLine("I'm sorry, I don't recognize that gesture.");
                 Console.WriteLine("Please enter your gesture exactly as you see it!");
                 Console.WriteLine("");
-                AssignGesture();
+                AssignGesture(); //dependency - look at the GamePlay class w/ while loop and bool returns to break this dependency
             }
 
         }

@@ -11,6 +11,8 @@ namespace RPSLS
         public Paper()
         {
             name = "Paper";
+            LosesTo.Add("Scissors");
+            LosesTo.Add("Lizard");
         }
     }
 }

@@ -12,6 +12,8 @@ namespace RPSLS
             
         {
             name = "Rock";
+            LosesTo.Add("Paper");
+            LosesTo.Add("Spock");
         }
     }
 }

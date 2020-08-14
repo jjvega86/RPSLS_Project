@@ -10,7 +10,9 @@ namespace RPSLS
     {
         public Spock()
         {
-            name = "Spock";
+            name = "Spock"; 
+            LosesTo.Add("Paper");
+            LosesTo.Add("Lizard");
         }
     }
 }
