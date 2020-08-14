@@ -17,13 +17,12 @@ namespace RPSLS
 
         public override Gesture AssignGesture()
         {
+            int gesturesIndex = 0;
 
             DisplayGestureOptions();
-            Console.WriteLine($"Please choose your gesture, {name}!");
+            Console.WriteLine($"Please choose your gesture, {name}!\n");
             gestureChoice = Console.ReadLine();
             ValidateGestureInput(gestureChoice);
-
-            int gesturesIndex = 0;
 
             for (int i = 0; i < gestures.Count; i++)
             {
@@ -38,26 +37,30 @@ namespace RPSLS
 
         }
 
-        public void ValidateGestureInput(string input) //REDO WITH NO DEPENDENCY IN ASSIGN METHOD
+        public void ValidateGestureInput(string input)
         {
             bool inputValid = false;
 
-            for (int i = 0; i < gestures.Count; i++)
+            while (inputValid == false)
             {
-                if (gestures[i].name == input)
+                for (int i = 0; i < gestures.Count; i++)
                 {
-                    inputValid = true;
+                    if (gestures[i].name == input)
+                    {
+                        inputValid = true;
+                        gestureChoice = input;
+                    }
+                   
                 }
-               
+                if (inputValid == false)
+                {
+                    Console.WriteLine("I'm sorry, I don't recognize that gesture.");
+                    Console.WriteLine("Please enter your gesture exactly as you see it!\n");
+                    input = Console.ReadLine();
+                    
+                }
             }
-
-            if (inputValid == false)
-            {
-                Console.WriteLine("I'm sorry, I don't recognize that gesture.");
-                Console.WriteLine("Please enter your gesture exactly as you see it!");
-                Console.WriteLine("");
-                AssignGesture(); //dependency - look at the GamePlay class w/ while loop and bool returns to break this dependency
-            }
+          
 
         }
 

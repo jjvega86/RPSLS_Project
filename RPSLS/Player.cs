@@ -29,7 +29,7 @@ namespace RPSLS
         {
             //take in user input to assign a string to the "name" variable
 
-            Console.WriteLine($"Please enter your name, {name}!");
+            Console.WriteLine($"\nPlease enter your name, {name}!");
             string newname = Console.ReadLine();
             return newname;
         }

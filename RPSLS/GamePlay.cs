@@ -59,7 +59,7 @@ namespace RPSLS
         {
            
 
-            Console.WriteLine("How many rounds would you like to play (Minimum of 3)?");
+            Console.WriteLine("How many rounds would you like to play (Minimum of 3)?\n");
             ValidatePlayerChoice();
             
 
@@ -67,7 +67,7 @@ namespace RPSLS
             if (userInput >= 3)
             {
                 maxRounds = userInput;
-                Console.WriteLine($"Great! You're playing for best out of {maxRounds}!\n");
+                Console.WriteLine($"\nGreat! You're playing for best out of {maxRounds}!\n");
 
             }
             else
@@ -82,7 +82,7 @@ namespace RPSLS
         {
             
             Console.WriteLine("Will you play alone, or with a friend?");
-            Console.WriteLine("Choose 1 to play with a friend, or 2 to play alone!");
+            Console.WriteLine("Choose 1 to play with a friend, or 2 to play alone!\n");
             ValidatePlayerChoice();
 
             
@@ -97,7 +97,7 @@ namespace RPSLS
             }
             else
             {
-                Console.WriteLine("That isn't one of the options. Please try again!");
+                Console.WriteLine("That isn't one of the options. Please try again!\n");
                 DeterminePlayer2();
             }
             
@@ -112,7 +112,7 @@ namespace RPSLS
                 inputSuccess = int.TryParse(Console.ReadLine(), out userInput);
                 if (inputSuccess == false)
                 {
-                    Console.WriteLine("I didn't recognize that input. Please try again!");
+                    Console.WriteLine("I didn't recognize that input. Please try again!\n");
 
                 }
             }
@@ -125,11 +125,9 @@ namespace RPSLS
             player2.name = player2.ChangeName();
             Console.WriteLine($"\nIt's {player1.name} vs. {player2.name}. Let's go!\n");
 
-            //MVP - player1.score <maxRounds && player2.score < MaxRounds
-            while (player1.score + player2.score < maxRounds)//does this work for every scenario?
+            while (player1.score < maxRounds && player2.score < maxRounds)
             {
                 CompareGestures(player1.AssignGesture(), player2.AssignGesture());
-                Console.WriteLine("");
                 PrintCurrentScore();
             }
             
@@ -138,7 +136,7 @@ namespace RPSLS
 
         public void PrintCurrentScore()
         {
-            Console.WriteLine($"Currently, {player1.name} has {player1.score} and {player2.name} has {player2.score}!");
+            Console.WriteLine($"\nCurrently, {player1.name} has {player1.score} and {player2.name} has {player2.score}!");
             Console.WriteLine("Press ENTER to continue.");
             Console.ReadLine();
         }
@@ -147,18 +145,18 @@ namespace RPSLS
         {
             if (gesture1.name == gesture2.name)
             {
-                Console.WriteLine("Draw!\n");
+                Console.WriteLine($"\n{player1.name} threw {gesture1.name} and {player2.name} threw {gesture2.name}. Draw!\n");
 
             }
             else if (gesture1.LosesTo.Contains(gesture2.name))
             {
                 player2.score++;
-                Console.WriteLine("Player 2 wins the round!\n");
+                Console.WriteLine($"\n{player1.name} threw {gesture1.name} and {player2.name} threw {gesture2.name}. {player2.name} wins the round!\n");
             }
             else
             {
                 player1.score++;
-                Console.WriteLine("Player 1 wins the round!\n");
+                Console.WriteLine($"\n{player1.name} threw {gesture1.name} and {player2.name} threw {gesture2.name}. {player1.name} wins the round!\n");
 
             }
         }
