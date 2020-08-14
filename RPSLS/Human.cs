@@ -17,16 +17,15 @@ namespace RPSLS
 
         public override string AssignGesture()
         {
-            //validation: if gestureChoice doesn't equal the gesture option exactly, reprompt for input
             DisplayGestureOptions();
             Console.WriteLine($"Please choose your gesture, {name}!");
             gestureChoice = Console.ReadLine();
             Console.WriteLine("");
-            ValidateInput(gestureChoice);
+            ValidateGestureInput(gestureChoice);
             return gestureChoice;
         }
 
-        public void ValidateInput(string input)
+        public void ValidateGestureInput(string input)
         {
             bool inputValid = false;
 
@@ -43,6 +42,7 @@ namespace RPSLS
             {
                 Console.WriteLine("I'm sorry, I don't recognize that gesture.");
                 Console.WriteLine("Please enter your gesture exactly as you see it!");
+                Console.WriteLine("");
                 AssignGesture();
             }
 

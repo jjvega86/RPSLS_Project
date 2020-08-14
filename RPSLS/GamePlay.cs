@@ -76,18 +76,32 @@ namespace RPSLS
         public void DeterminePlayer2()
         {
             Console.WriteLine("Will you play alone, or with a friend?");
-            Console.WriteLine("Choose 1 for alone, or 2 to play with a friend!");
+            Console.WriteLine("Choose 1 to play with a friend, or 2 to play alone!");
             int userInput = Convert.ToInt32(Console.ReadLine());
 
 
             if (userInput == 1)
             {
+                player2 = new Human("Player 2");
+
+            }
+            else if (userInput == 2)
+            {
                 player2 = new Computer();
+
             }
             else
             {
-                player2 = new Human("Player 2");
+                ValidatePlayerChoice();
             }
+        }
+
+        public void ValidatePlayerChoice()
+        {
+            Console.WriteLine("I'm sorry, that choice isn't valid. Please try again!");
+            Console.WriteLine("");
+            DeterminePlayer2();
+
         }
 
         public void PlayGame()
