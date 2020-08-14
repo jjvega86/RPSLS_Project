@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -93,124 +94,121 @@ namespace RPSLS
             player1.name = player1.ChangeName();
             player2.name = player2.ChangeName();
             Console.WriteLine($"It's {player1.name} vs. {player2.name}. Let's go!");
+            Console.WriteLine("");
 
-            while (player1.score < maxRounds && player2.score < maxRounds)
+            while (player1.score + player2.score < maxRounds)
             {
                 CompareGestures(player1.AssignGesture(), player2.AssignGesture());
                 Console.WriteLine("");
-
             }
 
         }
 
         public void CompareGestures(string gesture1, string gesture2)
         {
-            //would a switch case work better for this instead?
             if(gesture1 == "Rock" && gesture2 == "Scissors")
             {
-                Console.WriteLine("Rock crushes Scissors!");
+                Console.WriteLine($"Rock crushes Scissors! {player1.name} wins.");
                 player1.score++;
             }
             else if (gesture1 == "Scissors" && gesture2 == "Paper")
             {
-                Console.WriteLine("Scissors cuts Paper!");
+                Console.WriteLine($"Scissors cuts Paper! {player1.name} wins.");
                 player1.score++;
             }
             else if(gesture1 == "Paper" && gesture2 == "Rock")
             {
-                Console.WriteLine("Paper covers Rock!");
+                Console.WriteLine($"Paper covers Rock! {player1.name} wins.");
                 player1.score++;
             }
             else if(gesture1 == "Rock" && gesture2 == "Lizard")
             {
-                Console.WriteLine("Rock crushes Lizard!");
+                Console.WriteLine($"Rock crushes Lizard! {player1.name} wins.");
                 player1.score++;
             }
             else if(gesture1 == "Lizard" && gesture2 == "Spock")
             {
-                Console.WriteLine("Lizard poisons Spock!");
+                Console.WriteLine($"Lizard poisons Spock! {player1.name} wins.");
                 player1.score++;
             }
             else if(gesture1 == "Spock" && gesture2 == "Sicssors")
             {
-                Console.WriteLine("Spock smashes Scissors!");
+                Console.WriteLine($"Spock smashes Scissors! {player1.name} wins.");
                 player1.score++;
             }
             else if(gesture1 == "Scissors" && gesture2 == "Lizard")
             {
-                Console.WriteLine("Scissors decapitates Lizard!");
+                Console.WriteLine($"Scissors decapitates Lizard! {player1.name} wins.");
                 player1.score++;
             }
             else if(gesture1 == "Lizard" && gesture2 == "Paper")
             {
-                Console.WriteLine("Lizard eats Paper!");
+                Console.WriteLine($"Lizard eats Paper! {player1.name} wins.");
                 player1.score++;
             }
             else if(gesture1 == "Paper" && gesture2 == "Spock")
             {
-                Console.WriteLine("Paper disapproves Spock!");
+                Console.WriteLine($"Paper disapproves Spock! {player1.name} wins.");
                 player1.score++;
             }
             else if(gesture1 == "Spock" && gesture2 == "Rock")
             {
-                Console.WriteLine("Spock vaporizes Rock!");
+                Console.WriteLine($"Spock vaporizes Rock! {player1.name} wins.");
                 player1.score++;
             }
             else if(gesture2 == "Rock" && gesture1 == "Scissors")
             {
-                Console.WriteLine("Rock crushes Scissors!");
+                Console.WriteLine($"Rock crushes Scissors! {player2.name} wins.");
                 player2.score++;
             }
             else if(gesture2 == "Scissors" && gesture1 == "Paper")
             {
-                Console.WriteLine("Scissors cuts Paper!");
+                Console.WriteLine($"Scissors cuts Paper! {player2.name} wins.");
                 player2.score++;
             }
             else if(gesture2 == "Paper" && gesture1 == "Rock")
             {
-                Console.WriteLine("Paper covers Rock!");
+                Console.WriteLine($"Paper covers Rock! {player2.name} wins.");
                 player2.score++;
             }
             else if(gesture2 == "Rock" && gesture1 == "Lizard")
             {
-                Console.WriteLine("Rock crushes Lizard!");
+                Console.WriteLine($"Rock crushes Lizard! {player2.name} wins.");
                 player2.score++;
             }
             else if(gesture2 == "Lizard" && gesture1 == "Spock")
             {
-                Console.WriteLine("Lizard poisons Spock!");
+                Console.WriteLine($"Lizard poisons Spock! {player2.name} wins.");
                 player2.score++;
             }
             else if(gesture2 == "Spock" && gesture1 == "Sicssors")
             {
-                Console.WriteLine("Spock smashes Scissors!");
+                Console.WriteLine($"Spock smashes Scissors! {player2.name} wins.");
                 player2.score++;
             }
             else if(gesture2 == "Scissors" && gesture1 == "Lizard")
             {
-                Console.WriteLine("Scissors decapitates Lizard!");
+                Console.WriteLine($"Scissors decapitates Lizard! {player2.name} wins.");
                 player2.score++;
             }
             else if(gesture2 == "Lizard" && gesture1 == "Paper")
             {
-                Console.WriteLine("Lizard eats Paper!");
+                Console.WriteLine($"Lizard eats Paper! {player2.name} wins.");
                 player2.score++;
             }
             else if(gesture2 == "Paper" && gesture1 == "Spock")
             {
-                Console.WriteLine("Paper disapproves Spock!");
+                Console.WriteLine($"Paper disapproves Spock! {player2.name} wins.");
                 player2.score++;
             }
             else if(gesture2 == "Spock" && gesture1 == "Rock")
             {
-                Console.WriteLine("Spock vaporizes Rock!");
+                Console.WriteLine($"Spock vaporizes Rock! {player2.name} wins.");
                 player2.score++;
             }
             else
             {
                 Console.WriteLine("Draw!");
-                //MaxRound-- to decrement the game total? This would make a better "2 out of 3" scenario.
-                //get it working first
             }
 
         }
