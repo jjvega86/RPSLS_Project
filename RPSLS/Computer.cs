@@ -30,6 +30,7 @@ namespace RPSLS
         public override string AssignGesture()
         {
             gestureChoice = gestures[random.Next(gestures.Count)].name;
+            Console.WriteLine("");
             return gestureChoice;
         }
     }

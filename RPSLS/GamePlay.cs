@@ -22,7 +22,8 @@ namespace RPSLS
 
         public void RunGame()
         {
-            //Contains all other GamePlay methods, and is the only method that will run in Program.cs
+            //string playAgain; //write an if statement that runs game again if user wants it to
+
             GameWelcome();
             GameRules();
             ChooseRounds();
@@ -93,6 +94,7 @@ namespace RPSLS
         {
             player1.name = player1.ChangeName();
             player2.name = player2.ChangeName();
+            Console.WriteLine("");
             Console.WriteLine($"It's {player1.name} vs. {player2.name}. Let's go!");
             Console.WriteLine("");
 
@@ -100,14 +102,17 @@ namespace RPSLS
             {
                 CompareGestures(player1.AssignGesture(), player2.AssignGesture());
                 Console.WriteLine("");
+                PrintCurrentScore();
             }
-            PrintCurrentScore();
+            
 
         }
 
         public void PrintCurrentScore()
         {
             Console.WriteLine($"Currently, {player1.name} has {player1.score} and {player2.name} has {player2.score}!");
+            Console.WriteLine("Press ENTER to continue.");
+            Console.ReadLine();
         }
 
         public void CompareGestures(string gesture1, string gesture2)
@@ -222,22 +227,24 @@ namespace RPSLS
 
         public void DeclareWinner()
         {
-            string winner;
-            //takes the return of GameRound for the game winner, outputs a winning message
-            //asks if you would like to play again, restarts the whole thing if yes
             if (player1.score > player2.score)
             {
-                winner = player1.name;
+                Console.WriteLine($"The game winner is {player1.name}!");
+                Console.ReadLine();
+                
+            }
+            else if (player2.score > player1.score)
+            {
+                Console.WriteLine($"The game winner is {player2.name}!");
+                Console.ReadLine();
+              
             }
             else
             {
-                winner = player2.name;
-                
+                Console.WriteLine("The game ends in a tie!");
+                Console.ReadLine();
+
             }
-
-
-            Console.WriteLine($"The game winner is {winner}!");
-            Console.ReadLine();
 
         }
     }

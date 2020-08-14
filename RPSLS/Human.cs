@@ -19,8 +19,9 @@ namespace RPSLS
         {
             //validation: if gestureChoice doesn't equal the gesture option exactly, reprompt for input
             DisplayGestureOptions();
-            Console.WriteLine("Please choose your gesture!");
+            Console.WriteLine($"Please choose your gesture, {name}!");
             gestureChoice = Console.ReadLine();
+            Console.WriteLine("");
             return gestureChoice;
         }
 

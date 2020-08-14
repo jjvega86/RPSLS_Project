@@ -41,6 +41,7 @@ namespace RPSLS
                 Console.WriteLine(gestures[i].name);
 
             }
+            Console.WriteLine("");
         }
 
         public abstract string AssignGesture(); 
