@@ -9,7 +9,6 @@ namespace RPSLS
     public class Gesture
     {
         public string name;
-        //what member variable would all of them share to help with battle logic?
         public Gesture()
         {
             name = "Default";

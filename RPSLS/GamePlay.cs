@@ -15,13 +15,13 @@ namespace RPSLS
         public GamePlay()
         {
             player1 = new Human("Player 1");
-            maxRounds = 3; // must be MINIMUM of three
+            maxRounds = 3; 
    
         }
 
         public void RunGame()
         {
-            //Contains all other GamePlay method, and is the only method that will run in Program.cs
+            //Contains all other GamePlay methods, and is the only method that will run in Program.cs
             GameWelcome();
             GameRules();
             ChooseRounds();
@@ -37,14 +37,12 @@ namespace RPSLS
             Console.WriteLine("Welcome to Rock, Paper, Scissors, Lizard, Spock!");
             Console.WriteLine("It's a game based on statistical anecdotal evidence.");
             Console.ReadLine();
-            
 
         }
 
         public void GameRules()
         {
             Console.WriteLine("You will take turns with another player. Each round, you and the other player will pick a gesture.");
-            player1.DisplayGestureOptions();
             Console.WriteLine("");
             Console.WriteLine("One gesture always beats another. Whoever gets the most points wins!");
             Console.ReadLine();
@@ -59,14 +57,19 @@ namespace RPSLS
             if (userInput >= 3)
             {
                 maxRounds = userInput;
+                Console.WriteLine($"Great! You're playing for best out of {maxRounds}!");
+                Console.WriteLine("");
 
             }
             else
             {
                 maxRounds = 3;
+                Console.WriteLine("Three rounds it is!");
+                Console.WriteLine("");
+
 
             }
-            
+
         }
         public void DeterminePlayer2()
         {
@@ -102,6 +105,7 @@ namespace RPSLS
 
         public void CompareGestures(string gesture1, string gesture2)
         {
+            //would a switch case work better for this instead?
             if(gesture1 == "Rock" && gesture2 == "Scissors")
             {
                 Console.WriteLine("Rock crushes Scissors!");
