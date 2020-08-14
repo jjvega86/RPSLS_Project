@@ -101,7 +101,13 @@ namespace RPSLS
                 CompareGestures(player1.AssignGesture(), player2.AssignGesture());
                 Console.WriteLine("");
             }
+            PrintCurrentScore();
 
+        }
+
+        public void PrintCurrentScore()
+        {
+            Console.WriteLine($"Currently, {player1.name} has {player1.score} and {player2.name} has {player2.score}!");
         }
 
         public void CompareGestures(string gesture1, string gesture2)
